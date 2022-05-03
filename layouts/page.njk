@@ -1,0 +1,32 @@
+{%- from "../components/page-title/macro.njk" import pageTitle -%}
+{% extends "./base.njk" %}
+
+{% block content %}
+  <div id="page-wrapper" class="page-wrapper agency-theme">
+    <div id="wrapper-main" class="wrapper-main">
+      <main id="main" class="main flex-fill" role="main">
+        {%- block guideTitle -%}
+          {{ pageTitle({
+            title: title,
+            summary: summary,
+            github: options.github.editButton,
+            repository: options.github.repository,
+            path: page.inputPath
+          }) }}
+        {%- endblock -%}
+
+        <div class="content-container content-area bg-less-bright">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                {%- block pageContent -%}
+                  {{ content | safe }}
+                {%- endblock -%}
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+{% endblock %}

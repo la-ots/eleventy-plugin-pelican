@@ -1,0 +1,85 @@
+{%- from "../../components/page-title/macro.njk" import pageTitle -%}
+{%- from "../../components/header/macro.njk" import header -%}
+{%- from "../../components/table-of-contents/macro.njk" import tableOfContents -%}
+{%- from "../../components/breadcrumbs/macro.njk" import breadcrumbs -%}
+{%- from "../../components/sidebar/macro.njk" import sideBar -%}
+{%- from "../../components/page-navigation/macro.njk" import pageNavigation -%}
+{%- from "../../components/footer/macro.njk" import footer -%}
+{%- extends "../base.njk" -%}
+
+{%- block officialBanner -%}{%- endblock -%}
+
+{%- block content -%}
+  <div id="page-wrapper" class="page-wrapper agency-theme">
+    
+    {{ sideBar({
+      entries: collections.all | eleventyNavigation,
+      currentPage: page
+    }) }}
+
+    <div id="wrapper-main" class="wrapper-main">
+      <div class="page-content d-flex flex-column">
+        {%- block guideHeader -%}
+          {{ header({
+            title: title | default(options.title),
+            icon: {
+              url: options.favicon
+            }
+          }) }}
+        {%- endblock -%}
+
+        {%- block guideBreadcrumbs -%}
+          {{ breadcrumbs({
+            entries: collections.all | eleventyNavigation,
+            currentPage: page
+          }) }}
+        {%- endblock -%}
+        
+        <main id="main" class="main flex-fill" role="main">
+          {%- block guideTitle -%}
+            {{ pageTitle({
+              title: title,
+              summary: summary,
+              github: options.github.editButton,
+              repository: options.github.repository,
+              path: page.inputPath
+            }) }}
+          {%- endblock -%}
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                {{ tableOfContents({
+                  content: content
+                })}}
+              </div>
+            </div>
+          </div>
+
+          <div class="content-container content-area bg-less-bright">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12">
+                  {%- block guideContent -%}
+                    {{ content | safe }}
+                  {%- endblock -%}
+                </div>
+              </div>
+
+              {%- block guideContentBottom -%}{%- endblock -%}
+            </div>
+          </div>
+          
+          {{ pageNavigation({
+            pages: collections.all | eleventyNavigation,
+            currentPage: page
+          }) }}
+        </main>
+
+        {%- block guideFooter -%}
+          {{ footer() }}
+        {%- endblock -%}
+      </div>
+    </div>
+  </div>
+{%- endblock -%}

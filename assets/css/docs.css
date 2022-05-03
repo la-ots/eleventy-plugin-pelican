@@ -1,0 +1,69 @@
+.brand-link::after {
+  display: none!important;
+}
+
+.text-shadow {
+  text-shadow: 0px 04px 03px rgba(0, 0, 0, 0.4),
+               0px 08px 13px rgba(0, 0, 0, 0.1),
+               0px 18px 23px rgba(0, 0, 0, 0.1);
+}
+
+h2:not(:nth-child(1)),
+h3,
+h4,
+h5 {
+  margin-top: 36px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  margin-top: unset;
+  margin-bottom: unset;
+}
+
+.alert p:last-child {
+  margin-bottom: 0;
+  display: inline;
+  margin-left: .5em;
+}
+
+.toc ol, .toc ul {
+  padding: 0 0 0 18px;
+}
+
+dt>code {
+  font-weight: 400;
+}
+
+.card-body > dl {
+  padding: 0 0 0 15px;
+}
+
+
+@media print {
+  #ScrollToTop, 
+  .edit-github, 
+  .breadcrumb-wrapper, 
+  .btns-previous-next, 
+  .skip-to-main, 
+  .page-toc,
+  #sidebar,
+  #footer,
+  #wrapper-topbar,
+  #sidebar-button {
+    display: none !important;
+  }
+
+  .page-wrapper,
+  .wrapper-main {
+    height: unset;
+    position: unset;
+  }
+  .page-wrapper,
+  .page-content {
+    padding: none;
+    width: unset;
+    overflow-x: unset;
+    transition: unset;
+  }
+}
