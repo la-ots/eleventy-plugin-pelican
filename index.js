@@ -63,18 +63,10 @@ module.exports = (eleventyConfig, pluginOptions = {}) => {
   // add default configuration
   eleventyConfig.addGlobalData('options', options)
 
-  // include core pelican assets to /pelican
+  // include core pelican and plugin assets to /pelican
   eleventyConfig.addPassthroughCopy({
-    [path.resolve(__dirname, 'assets/img/icon-dot-gov.svg')]: 'pelican/icon-dot-gov.svg',
-    [path.resolve(__dirname, 'assets/img/icon-https.svg')]: 'pelican/icon-https.svg',
-    [path.resolve(__dirname, 'assets/img/louisiana-state-seal.png')]: 'pelican/louisiana-state-seal.png',
-    [path.resolve(__dirname, 'node_modules/@la-ots/pelican/dist/css/pelican.min.css')]: 'pelican/pelican.min.css',
-    [path.resolve(__dirname, 'node_modules/@la-ots/pelican/dist/css/pelican.min.css.map')]: 'pelican/pelican.min.css.map',
-    [path.resolve(__dirname, 'node_modules/@la-ots/pelican/dist/js/pelican.bundle.min.js')]: 'pelican/pelican.bundle.min.js',
-    [path.resolve(__dirname, 'node_modules/@la-ots/pelican/dist/js/pelican.bundle.min.js.map')]: 'pelican/pelican.bundle.min.js.map',
-    [path.resolve(__dirname, 'assets/css/docs.css')]: 'pelican/docs.css',
-    [path.resolve(__dirname, 'assets/css/prism-theme.css')]: 'pelican/prism-theme.css',
-    [path.resolve(__dirname, 'assets/js/docs.js')]: 'pelican/docs.js',
+    [path.resolve(__dirname, 'assets/')]: 'pelican',
+    [path.resolve(__dirname, 'node_modules/@la-ots/pelican/dist')]: 'pelican',
   })
 
   return {

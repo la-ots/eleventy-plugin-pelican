@@ -16,9 +16,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900" rel="stylesheet">  
-    <link rel="stylesheet" href="{{ '/pelican/pelican.min.css' | url | addHash }}">
-    <link rel="stylesheet" href="{{ '/pelican/docs.css' | url | addHash }}">
-    <link rel="stylesheet" href="{{ '/pelican/prism-theme.css' | url | addHash }}">
+    <link rel="stylesheet" href="{{ '/pelican/css/pelican.min.css' | url | addHash }}">
+    <link rel="stylesheet" href="{{ '/pelican/css/docs.css' | url | addHash }}">
+    <link rel="stylesheet" href="{{ '/pelican/css/prism-theme.css' | url | addHash }}">
     {%- if options.theme.css -%}
       {%- for file in options.theme.css -%}
         <link rel="stylesheet" href="{{ file | url | addHash }}">
@@ -72,8 +72,8 @@
       {{ backToTop() }}
     {%- endblock -%}
 
-    <script src="{{ '/pelican/pelican.bundle.min.js' | url | addHash }}"></script>
-    <script src="{{ '/pelican/docs.js' | url | addHash }}"></script>
+    <script src="{{ '/pelican/js/pelican.bundle.min.js' | url | addHash }}"></script>
+    <script src="{{ '/pelican/js/docs.js' | url | addHash }}"></script>
     {%- if options.theme.javascript -%}
       {%- for file in options.theme.javascript -%}
         <script src="{{ file | url | addHash }}"></script>
