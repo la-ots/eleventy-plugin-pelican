@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('node:path')
 
 module.exports = (eleventyConfig, pluginOptions = {}) => {
   const options = require('./lib/data/options.js')(pluginOptions)
@@ -20,6 +20,9 @@ module.exports = (eleventyConfig, pluginOptions = {}) => {
   // collections
   eleventyConfig.addCollection('tagList', require('./lib/collections/tag-list'))
   eleventyConfig.addCollection('sidebarNav', require('./lib/collections/side-bar-nav.js'))
+
+  eleventyConfig.addTemplateFormats('scss')
+  eleventyConfig.addExtension('scss', require('./lib/extensions/scss.js'))
 
   // markdown
   eleventyConfig.setLibrary('md', require('./lib/markdown-it')(options))

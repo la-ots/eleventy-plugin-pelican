@@ -44,5 +44,8 @@
   },
   "peerDependencies": {
     "@11ty/eleventy": "^1.0.1"
+  },
+  "devDependencies": {
+    "sass": "^1.51.0"
   }
 }
