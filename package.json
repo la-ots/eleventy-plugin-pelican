@@ -20,7 +20,6 @@
   ],
   "scripts": {},
   "dependencies": {
-    "@11ty/eleventy": "^1.0.1",
     "@11ty/eleventy-navigation": "^0.3.2",
     "@11ty/eleventy-plugin-inclusive-language": "^1.0.3",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
@@ -42,5 +41,8 @@
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
     "markdown-it-task-lists": "^2.1.1"
+  },
+  "peerDependencies": {
+    "@11ty/eleventy": "^1.0.1"
   }
 }
