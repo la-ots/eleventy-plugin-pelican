@@ -28,19 +28,18 @@ module.exports = (eleventyConfig, pluginOptions = {}) => {
   eleventyConfig.setLibrary('md', require('./lib/markdown-it')(options))
 
   // data
-  eleventyConfig.addGlobalData("env", () => {
+  eleventyConfig.addGlobalData('env', () => {
     return {
-      development: process.env.ELEVENTY_ENV === "development",
-      production: process.env.ELEVENTY_ENV === "production",
+      development: process.env.ELEVENTY_ENV === 'development',
+      production: process.env.ELEVENTY_ENV === 'production'
     }
   })
 
   // navigation assists for next and previous pages
-  eleventyConfig.addFilter("navigationNextPrevious", (nav, page) => {
+  eleventyConfig.addFilter('navigationNextPrevious', (nav, page) => {
     let next = null
     let previous = null
     let current = null
-    let x = []
 
     nav.forEach((entry) => {
       if (page.url.toLowerCase().includes(entry.url.toLowerCase())) {
@@ -58,8 +57,8 @@ module.exports = (eleventyConfig, pluginOptions = {}) => {
     })
 
     return {
-      next: next,
-      previous: previous
+      next,
+      previous
     }
   })
 
@@ -69,10 +68,10 @@ module.exports = (eleventyConfig, pluginOptions = {}) => {
   // include core pelican and plugin assets to /pelican
   eleventyConfig.addPassthroughCopy({
     [path.resolve(__dirname, 'assets/')]: 'pelican',
-    [path.resolve(__dirname, 'node_modules/@la-ots/pelican/dist')]: 'pelican',
+    [path.resolve(__dirname, 'node_modules/@la-ots/pelican/dist')]: 'pelican'
   })
 
   return {
-    templateFormats: ["md", "njk", "html", "liquid"]
+    templateFormats: ['md', 'njk', 'html', 'liquid']
   }
 }

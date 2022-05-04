@@ -18,7 +18,9 @@
     "layouts",
     "lib"
   ],
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint **/*.js"
+  },
   "dependencies": {
     "@11ty/eleventy-navigation": "^0.3.2",
     "@11ty/eleventy-plugin-inclusive-language": "^1.0.3",
@@ -46,6 +48,11 @@
     "@11ty/eleventy": "^1.0.1"
   },
   "devDependencies": {
+    "eslint": "^8.14.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.0",
+    "eslint-plugin-promise": "^6.0.0",
     "sass": "^1.51.0"
   }
 }
