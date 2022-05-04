@@ -39,6 +39,16 @@ dt>code {
   padding: 0 0 0 15px;
 }
 
+.contains-task-list {
+  padding-left: 1em;
+}
+.contains-task-list li {
+  list-style: none;
+}
+.contains-task-list input {
+  display: inline-block;
+  margin-right: 0.25em;
+}
 
 @media print {
   #ScrollToTop, 
