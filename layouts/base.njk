@@ -15,14 +15,16 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/brands.min.css" rel="stylesheet">    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900" rel="stylesheet">  
-    <link rel="stylesheet" href="{{ '/pelican/css/pelican.min.css' | url | addHash }}">
-    <link rel="stylesheet" href="{{ '/pelican/css/docs.css' | url | addHash }}">
-    <link rel="stylesheet" href="{{ '/pelican/css/prism-theme.css' | url | addHash }}">
-    {%- if options.theme.css -%}
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900" rel="stylesheet">
+    {%- if not options.assets.bundle -%}
+      {%- for file in options.assets.core.css -%}
+        <link rel="stylesheet" href="{{ ['/pelican/css/', file[1]] | join | url | addHash }}">
+      {%- endfor -%}
       {%- for file in options.theme.css -%}
         <link rel="stylesheet" href="{{ file | url | addHash }}">
       {%- endfor -%}
+    {%- else -%}
+      <link rel="stylesheet" href="{{ '/pelican/pelican-gen-bundle.css' | url | addHash }}">
     {%- endif -%}
     {%- block css -%}{%- endblock -%}
     <title>{% if title %}{{ title }} | {% endif %}{{ options.title }}</title>
@@ -72,12 +74,15 @@
       {{ backToTop() }}
     {%- endblock -%}
 
-    <script src="{{ '/pelican/js/pelican.bundle.min.js' | url | addHash }}"></script>
-    <script src="{{ '/pelican/js/docs.js' | url | addHash }}"></script>
-    {%- if options.theme.javascript -%}
+    {%- if not options.assets.bundle -%}
+      {%- for file in options.assets.core.javascript -%}
+        <script src="{{ ['/pelican/js/', file[1]] | join | url | addHash }}"></script>
+      {%- endfor -%}
       {%- for file in options.theme.javascript -%}
         <script src="{{ file | url | addHash }}"></script>
       {%- endfor -%}
+    {%- else -%}
+      <script src="{{ '/pelican/pelican-gen-bundle.js' | url | addHash }}"></script>
     {%- endif -%}
     {%- block javascript -%}{%- endblock -%}
   </body>

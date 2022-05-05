@@ -62,14 +62,21 @@ module.exports = (eleventyConfig, pluginOptions = {}) => {
     }
   })
 
+  if (options.assets.bundle) {
+    // trigger asset bundler
+    eleventyConfig.on('eleventy.after', async () => {
+      require('./lib/events/build-frontend-assets.js')(eleventyConfig, options)
+    })
+  } else {
+    // include core pelican and plugin assets to /pelican
+    eleventyConfig.addPassthroughCopy({
+      [path.resolve(__dirname, 'assets/')]: 'pelican',
+      [path.resolve(__dirname, 'node_modules/@la-ots/pelican/dist')]: 'pelican'
+    })
+  }
+
   // add default configuration
   eleventyConfig.addGlobalData('options', options)
-
-  // include core pelican and plugin assets to /pelican
-  eleventyConfig.addPassthroughCopy({
-    [path.resolve(__dirname, 'assets/')]: 'pelican',
-    [path.resolve(__dirname, 'node_modules/@la-ots/pelican/dist')]: 'pelican'
-  })
 
   return {
     templateFormats: ['md', 'njk', 'html', 'liquid']

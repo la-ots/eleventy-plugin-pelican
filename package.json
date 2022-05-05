@@ -48,11 +48,14 @@
     "@11ty/eleventy": "^1.0.1"
   },
   "devDependencies": {
+    "cssnano": "^5.1.7",
+    "esbuild": "^0.14.38",
     "eslint": "^8.14.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.2.0",
     "eslint-plugin-promise": "^6.0.0",
+    "postcss": "^8.4.13",
     "sass": "^1.51.0"
   }
 }
