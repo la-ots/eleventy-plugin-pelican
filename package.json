@@ -30,7 +30,6 @@
     "deepmerge": "^4.2.2",
     "eleventy-plugin-nesting-toc": "^1.3.0",
     "eleventy-plugin-reading-time": "^0.0.1",
-    "hasha": "^5.2.2",
     "markdown-it-anchor": "^8.6.2",
     "markdown-it-attrs": "^4.1.3",
     "markdown-it-container": "^3.0.0",
