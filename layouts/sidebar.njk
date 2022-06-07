@@ -1,0 +1,51 @@
+{%- from "../components/header/macro.njk" import header -%}
+{%- from "../components/sidebar/macro.njk" import sideBar -%}
+{%- extends "./base.njk" -%}
+
+{%- block officialBanner -%}
+{%- endblock -%}
+
+{%- block content -%}
+  <div id="page-wrapper" class="page-wrapper agency-theme">
+    {%- block sidebar -%}
+      {{ sideBar({
+        entries: collections.all | eleventyNavigation,
+        currentPage: page,
+        title: options.layouts.sidebar.title,
+        icon: options.layouts.sidebar.icon.url | default(options.favicon, true),
+        iconAltText: options.layouts.sidebar.icon.alt
+      }) }}
+    {%- endblock -%}
+
+    <div id="wrapper-main" class="wrapper-main">
+      <div class="page-content d-flex flex-column">
+
+        {%- block sidebarTopHeader -%}
+          {{ header({
+            title: title | default(options.title, true),
+            icon: {
+              url: options.favicon
+            }
+          }) }}
+        {%- endblock -%}
+
+        <main id="main" class="main flex-fill" role="main">
+          {%- block pageWithSidebarContent -%}
+            <div class="content-container content-area bg-less-bright">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-12">
+                    {{ content | safe }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          {%- endblock -%}
+        </main>
+
+        {%- block sidebarFooter -%}
+        {%- endblock -%}
+      </div>
+    </div>
+  </div>
+{%- endblock -%}

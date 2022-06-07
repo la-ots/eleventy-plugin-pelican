@@ -1,4 +1,4 @@
-<a id="ScrollToTop" href="{{ params.url | default('#main') }}" class="btn-scroll-top" role="button">
+<a id="ScrollToTop" href="{{ params.url | default('#main', true) }}" class="btn-scroll-top" role="button">
   <span class="fas fa-arrow-up" aria-hidden="true"></span>
-  <span class="sr-only">{{ params.text | default('Go Back to Top of Page') }}</span>
+  <span class="sr-only">{{ params.text | default('Go Back to Top of Page', true) }}</span>
 </a>

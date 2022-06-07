@@ -1,7 +1,7 @@
 <div class="card page-toc">
   <div class="card-body">
     <details id="toc">
-      <summary class="summary">{{ params.title | default('On this page:') }}</summary>
+      <summary class="summary">{{ params.title | default('On this page:', true) }}</summary>
       <div class="mt-2">
         {{ params.content | toc | safe }}
       </div>

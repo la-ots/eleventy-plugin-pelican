@@ -1,3 +1,3 @@
-<a id="skip-to-main" class="skip-to-main d-print-none" href="{{ params.url | default('#main') }}">
-  {{ params.html | safe if params.html else params.text | default('Skip to Main Content') }}
+<a id="skip-to-main" class="skip-to-main d-print-none" href="{{ params.url | default('#main', true) }}">
+  {{ params.html | safe if params.html else params.text | default('Skip to Main Content', true) }}
 </a>

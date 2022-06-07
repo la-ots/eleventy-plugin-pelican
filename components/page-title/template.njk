@@ -10,7 +10,7 @@
           <div class="mt-8 mt-lg-0 edit-github">
             <a href="{{ params.repository }}{{ params.path }}" class="btn btn-primary btn-shadow">
               <span class="fab fa-github" aria-hidden="true"></span>
-              {{ params.buttonText | default('Edit on GitHub') }}
+              {{ params.buttonText | default('Edit on GitHub', true) }}
             </a>
           </div>
         {%- endif -%}

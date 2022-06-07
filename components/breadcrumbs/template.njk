@@ -1,9 +1,9 @@
 <nav class="breadcrumb-wrapper" aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a href="{{ params.home.url | default('/') }}">
+      <a href="{{ params.home.url | default('/', true) }}">
         <span class="fas fa-home" aria-hidden="true"></span>
-        <span class="sr-only">{{ params.home.text | default('Home') }}</span>
+        <span class="sr-only">{{ params.home.text | default('Home', true) }}</span>
       </a>
     </li>
     {%- for entry in params.entries -%}

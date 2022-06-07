@@ -2,14 +2,14 @@
   <p class="m-0 font-weight-bold order-lg-2 mr-auto">
     <a href="{{ '/' | url }}" class="d-md-none text-white text-decoration-none" tabindex="2">
       {%- if params.icon and params.icon.url -%}
-        <img src="{{ params.icon.url }}" class="img-fluid d-md-none" style="width: 24px;" alt="{{ params.icon.altText | default('Site icon') }}" />
+        <img src="{{ params.icon.url }}" class="d-md-none" alt="{{ params.icon.altText | default('Site icon', true) }}" />
       {%- endif -%}
       <span>{{ params.title }}</span>
     </a>
     <span class="d-none d-md-inline" tabindex="-1">{{ params.title }}</span>
   </p>
-  <a id="sidebar-button" class="sidebar-button" href="#" role="button" tabindex="3">
+  <a id="sidebar-button" class="btn btn-sm btn-black sidebar-button" href="#" role="button" tabindex="3">
     <span class="fas fa-fw fa-bars" aria-hidden="true"></span>
-    <span class="sr-only">{{ params.toggleText | default('Toggle side navigation visibility') }}</span>
+    <span class="sr-only">{{ params.toggleText | default('Toggle side navigation visibility', true) }}</span>
   </a>
 </div>

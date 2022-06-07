@@ -4,11 +4,12 @@ module.exports = (eleventyConfig, pluginOptions = {}) => {
   const options = require('./lib/data/options.js')(pluginOptions)
 
   // filters
-  eleventyConfig.addFilter('default', require('./lib/filters/default'))
   eleventyConfig.addFilter('titleize', require('./lib/filters/titleize'))
   eleventyConfig.addFilter('capitalize', require('./lib/filters/capitilize'))
   eleventyConfig.addFilter('replaceDash', require('./lib/filters/replace-dash'))
   eleventyConfig.addFilter('addHash', require('./lib/filters/add-hash'))
+  eleventyConfig.addFilter('navigationNextPrevious', require('./lib/filters/navigation-next-previous.js'))
+  eleventyConfig.addFilter('getFileName', require('./lib/filters/get-filename.js'))
 
   // plugins
   eleventyConfig.addPlugin(require('eleventy-plugin-nesting-toc'))
@@ -35,33 +36,6 @@ module.exports = (eleventyConfig, pluginOptions = {}) => {
     }
   })
 
-  // navigation assists for next and previous pages
-  eleventyConfig.addFilter('navigationNextPrevious', (nav, page) => {
-    let next = null
-    let previous = null
-    let current = null
-
-    nav.forEach((entry) => {
-      if (page.url.toLowerCase().includes(entry.url.toLowerCase())) {
-        entry.children.forEach((child) => {
-          if (!next && current) {
-            next = child
-          }
-          if (child.url === page.url) {
-            current = child
-          } else if (!current) {
-            previous = child
-          }
-        })
-      }
-    })
-
-    return {
-      next,
-      previous
-    }
-  })
-
   if (options.assets.bundle) {
     // trigger asset bundler
     eleventyConfig.on('eleventy.after', async () => {
@@ -70,10 +44,16 @@ module.exports = (eleventyConfig, pluginOptions = {}) => {
   } else {
     // include core pelican and plugin assets to /pelican
     eleventyConfig.addPassthroughCopy({
-      [path.resolve(__dirname, 'assets/')]: 'pelican',
+      [path.resolve(__dirname, 'assets/css')]: 'pelican/css',
+      [path.resolve(__dirname, 'assets/js')]: 'pelican/js',
       [path.resolve(__dirname, 'node_modules/@la-ots/pelican/dist')]: 'pelican'
     })
   }
+
+  // always include base Pelican images:
+  eleventyConfig.addPassthroughCopy({
+    [path.resolve(__dirname, 'assets/img')]: 'pelican/img'
+  })
 
   // add default configuration
   eleventyConfig.addGlobalData('options', options)
