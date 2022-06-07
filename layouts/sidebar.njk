@@ -11,7 +11,7 @@
       {{ sideBar({
         entries: collections.all | eleventyNavigation,
         currentPage: page,
-        title: options.layouts.sidebar.title,
+        title: options.layouts.sidebar.title | default(options.title, true),
         icon: options.layouts.sidebar.icon.url | default(options.favicon, true),
         iconAltText: options.layouts.sidebar.icon.alt
       }) }}
