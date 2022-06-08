@@ -35,28 +35,30 @@
     </div>
   {%- endblock -%}
 
-  <div class="content-container content-area bg-less-bright">
-    <div class="container-fluid">
-      {%- block guideStart -%}{%- endblock -%}
+  {%- block guideMainContent -%}
+    <div class="content-container content-area bg-less-bright">
+      <div class="container-fluid">
+        {%- block guideStart -%}{%- endblock -%}
 
-      <div class="row">
-        <div class="col-12">
-          {%- block guideContent -%}
-            {{ content | safe }}
-          {%- endblock -%}
+        <div class="row">
+          <div class="col-12">
+            {%- block guideContent -%}
+              {{ content | safe }}
+            {%- endblock -%}
+          </div>
         </div>
+
+        {%- block guidePageNavigation -%}
+          {{ pageNavigation({
+            pages: collections.all | eleventyNavigation,
+            currentPage: page
+          }) }}
+        {%- endblock -%}
+
+        {%- block guideEnd -%}{%- endblock -%}
       </div>
-
-      {%- block guidePageNavigation -%}
-        {{ pageNavigation({
-          pages: collections.all | eleventyNavigation,
-          currentPage: page
-        }) }}
-      {%- endblock -%}
-
-      {%- block guideEnd -%}{%- endblock -%}
     </div>
-  </div>
+  {%- endblock -%}
 {%- endblock -%}
 
 {%- block sidebarFooter -%}
