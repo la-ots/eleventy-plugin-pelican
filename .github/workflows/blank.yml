@@ -1,0 +1,85 @@
+name: Release and Publish
+
+on:
+  release:
+    types: [published]
+
+env:
+  NODE_VERSION: 16
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install Dependencies and Build
+        run: |
+          npm ci
+          npm run build-dist
+          npm pack
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          path: "la-ots-eleventy-plugin-pelican-*.tgz"
+          
+  publish-npm:
+    name: Release to NPM
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: NPM
+      url: https://www.npmjs.com/package/@la-ots/eleventy-plugin-pelican
+
+    steps:
+      - name: Download package
+        uses: actions/download-artifact@v3
+
+      - name: Setup Node ${{ env.NODE_VERSION }} for NPM
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Publish to NPM
+        if: "!github.event.release.prerelease"
+        run: npm publish $(ls *.tgz) --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          
+      - name: Publish to NPM
+        if: "github.event.release.prerelease"
+        run: npm publish $(ls *.tgz) --access public --tag beta
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          
+  publish-gpr:
+    name: Release to GitHub Packages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: GitHub Packages
+      url: https://github.com/la-ots/eleventy-plugin-pelican/packages
+
+    steps:
+      - name: Download package
+        uses: actions/download-artifact@v3
+
+      - name: Setup Node ${{ env.NODE_VERSION }} for GitHub
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: 'https://npm.pkg.github.com'
+        
+      - name: Publish to GitHub Packages
+        run: npm publish $(ls *.tgz)
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
