@@ -1,0 +1,87 @@
+{%- from "../components/skip-link/macro.njk" import skipLink -%}
+{%- from "../components/back-to-top/macro.njk" import backToTop -%}
+{%- from "../components/official-banner/macro.njk" import officialBanner -%}
+{%- from "../components/new-relic-apm/macro.njk" import newRelicApm -%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Eleventy">
+    {%- if options.favicon -%}
+      <link rel="icon" href="{{ options.favicon | url | addHash }}" type="image/png">
+    {%- endif -%}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/brands.min.css" rel="stylesheet">    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900" rel="stylesheet">
+    {%- if not options.assets.bundle -%}
+      {%- for file in options.assets.core.css -%}
+        <link rel="stylesheet" href="{{ ['/pelican/css/', file | getFileName] | join | url | addHash }}">
+      {%- endfor -%}
+      {%- for file in options.assets.custom.css -%}
+        <link rel="stylesheet" href="{{ file | url | addHash }}">
+      {%- endfor -%}
+    {%- else -%}
+      <link rel="stylesheet" href="{{ '/pelican/pelican-gen-bundle.css' | url | addHash }}">
+    {%- endif -%}
+    {%- block css -%}{%- endblock -%}
+    <title>{% if title %}{{ title }} | {% endif %}{{ options.title }}</title>
+    <meta name="title" content="{% if title %}{{ title }} | {% endif %}{{ options.title }}">
+    <meta name="description" content="{{ description | default(options.description, true) }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ options.url }}{{ page.url }}">
+    <meta property="twitter:url" content="{{ options.url }}{{ page.url }}">
+    <meta property="og:title" content="{{ social.title | default(title, true) | default(options.title, true) }}">
+    <meta property="twitter:title" content="{{ social.title | default(title, true) | default(options.title, true) }}">
+    <meta property="og:description" content="{{ social.description | default(description, true) | default(options.description, true) }}">
+    <meta property="twitter:description" content="{{ social.description | default(description, true) | default(options.description, true) }}">
+    <meta property="twitter:card" content="summary_large_image">
+    {%- if social.image or options.social.image -%}
+      <meta property="og:image" content="{{ options.url }}{{ social.image | default(options.social.image, true) }}">
+      <meta property="twitter:image" content="{{ options.url }}{{ social.image | default(options.social.image, true) }}">
+    {%- endif -%}
+    {%- block newRelicApm -%}
+      {%- if options.newRelicApm -%}
+        {{ newRelicApm({
+          accountId: options.newRelicApm.accountId,
+          trustKey: options.newRelicApm.trustKey,
+          agentId: options.newRelicApm.agentId,
+          licenseKey: options.newRelicApm.licenseKey,
+          applicationId: options.newRelicApm.applicationId
+        }) }}
+      {%- endif -%}
+    {%- endblock -%}
+    {%- block head -%}{%- endblock -%}
+  </head>
+  <body class="bg-texture">
+    {%- block skipLink -%}
+      {{ skipLink() }}
+    {%- endblock -%}
+
+    {%- block officialBanner -%}
+      {{ officialBanner() }}
+    {%- endblock -%}
+
+    {%- block content -%}
+      {{ content | safe }}
+    {%- endblock -%}
+
+    {%- block backToTop -%}
+      {{ backToTop() }}
+    {%- endblock -%}
+
+    {%- if not options.assets.bundle -%}
+      {%- for file in options.assets.core.javascript -%}
+        <script src="{{ ['/pelican/js/', file | getFileName] | join | url | addHash }}"></script>
+      {%- endfor -%}
+      {%- for file in options.assets.custom.javascript -%}
+        <script src="{{ file | url | addHash }}"></script>
+      {%- endfor -%}
+    {%- else -%}
+      <script src="{{ '/pelican/pelican-gen-bundle.js' | url | addHash }}"></script>
+    {%- endif -%}
+    {%- block javascript -%}{%- endblock -%}
+  </body>
+</html>
