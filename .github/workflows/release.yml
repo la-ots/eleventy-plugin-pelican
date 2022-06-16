@@ -24,7 +24,6 @@ jobs:
       - name: Install Dependencies and Build
         run: |
           npm ci
-          npm run build-dist
           npm pack
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
@@ -55,7 +54,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           
-      - name: Publish to NPM
+      - name: Publish to NPM (prerelease)
         if: "github.event.release.prerelease"
         run: npm publish $(ls *.tgz) --access public --tag beta
         env:
@@ -80,6 +79,13 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
         
       - name: Publish to GitHub Packages
+        if: "!github.event.release.prerelease"
         run: npm publish $(ls *.tgz)
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to GitHub Packages (prerelease)
+        if: "github.event.release.prerelease"
+        run: npm publish $(ls *.tgz) --tag beta
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
