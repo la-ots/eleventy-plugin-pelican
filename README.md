@@ -84,6 +84,8 @@ These configurations are set in the Eleventy config
   assets: {
     // bundle assets?
     bundle: true,
+    // use core assets?
+    core: true,
     // any custom assets to include
     custom: {
       css: [],
@@ -152,3 +154,7 @@ social:
   * `guidePageNavigation` - Page next/previous
   * `guideEnd` - Content at end of guide area
 * `docs/area` - Sub template for an area overview for docs
+
+## Development
+
+Highly recommend using [yalc](https://www.npmjs.com/package/yalc) to dev and test.
