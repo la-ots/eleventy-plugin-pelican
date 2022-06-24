@@ -28,6 +28,8 @@ const pelicanEleventyPlugin = require('eleventy-plugin-pelican')
 
 eleventyConfig.addPlugin(pelicanEleventyPlugin, {
   // configuration options
+  basePath: __dirname,  // must include at least this option
+  ...
 })
 ```
 
@@ -152,3 +154,7 @@ social:
   * `guidePageNavigation` - Page next/previous
   * `guideEnd` - Content at end of guide area
 * `docs/area` - Sub template for an area overview for docs
+
+## Development
+
+Highly recommend using [yalc](https://www.npmjs.com/package/yalc) to dev and test.
