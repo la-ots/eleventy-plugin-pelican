@@ -28,8 +28,6 @@ const pelicanEleventyPlugin = require('eleventy-plugin-pelican')
 
 eleventyConfig.addPlugin(pelicanEleventyPlugin, {
   // configuration options
-  basePath: __dirname,  // must include at least this option
-  ...
 })
 ```
 
@@ -86,6 +84,8 @@ These configurations are set in the Eleventy config
   assets: {
     // bundle assets?
     bundle: true,
+    // use core assets?
+    core: true,
     // any custom assets to include
     custom: {
       css: [],
