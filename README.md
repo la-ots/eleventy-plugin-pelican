@@ -56,6 +56,10 @@ These configurations are set in the Eleventy config
 
   // layout specific configurations
   layouts: {
+    // // any custom css files to include in header
+    css: [],
+    // any custom javascript files to include in header
+    javascript: [],
     // sidebar layout
     sidebar: {
       // title (defaults to site title)
@@ -82,11 +86,10 @@ These configurations are set in the Eleventy config
 
   // asset building/bundling
   assets: {
-    // bundle assets?
-    bundle: true,
     // use core assets?
     core: true,
-    // any custom assets to include
+    // any custom assets (css/js) to include in bundle
+    // must be absolute paths
     custom: {
       css: [],
       javascript: []
