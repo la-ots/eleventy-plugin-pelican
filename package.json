@@ -1,6 +1,6 @@
 {
   "name": "@la-ots/eleventy-plugin-pelican",
-  "version": "1.0.0-beta3",
+  "version": "1.0.0-beta4",
   "description": "Eleventy plugin to build websites using the Pelican design system",
   "license": "CC0-1.0",
   "repository": {
@@ -25,7 +25,7 @@
     "@11ty/eleventy-navigation": "^0.3.3",
     "@11ty/eleventy-plugin-inclusive-language": "^1.0.3",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
-    "@la-ots/pelican": "^1.1.1",
+    "@la-ots/pelican": "^1.1.2",
     "@toycode/markdown-it-class": "^1.2.4",
     "cssnano": "^5.1.11",
     "deepmerge": "^4.2.2",
