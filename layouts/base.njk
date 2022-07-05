@@ -16,15 +16,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900" rel="stylesheet">
-    {%- if not options.assets.bundle -%}
-      {%- for file in options.assets.core.css -%}
-        <link rel="stylesheet" href="{{ ['/pelican/css/', file | getFileName] | join | url | addHash }}">
-      {%- endfor -%}
-      {%- for file in options.assets.custom.css -%}
+    <link rel="stylesheet" href="{{ '/_pelican-assets/pelican-gen-bundle.css' | url | addHash }}">
+    {%- if options.layouts.css -%}
+      {%- for file in options.layouts.css -%}
         <link rel="stylesheet" href="{{ file | url | addHash }}">
       {%- endfor -%}
-    {%- else -%}
-      <link rel="stylesheet" href="{{ '/pelican/pelican-gen-bundle.css' | url | addHash }}">
     {%- endif -%}
     {%- block css -%}{%- endblock -%}
     <title>{% if title %}{{ title }} | {% endif %}{{ options.title }}</title>
@@ -72,15 +68,11 @@
       {{ backToTop() }}
     {%- endblock -%}
 
-    {%- if not options.assets.bundle -%}
-      {%- for file in options.assets.core.javascript -%}
-        <script src="{{ ['/pelican/js/', file | getFileName] | join | url | addHash }}"></script>
-      {%- endfor -%}
-      {%- for file in options.assets.custom.javascript -%}
+    <script src="{{ '/_pelican-assets/pelican-gen-bundle.js' | url | addHash }}"></script>
+    {%- if options.layouts.javascript -%}
+      {%- for file in options.layouts.javascript -%}
         <script src="{{ file | url | addHash }}"></script>
       {%- endfor -%}
-    {%- else -%}
-      <script src="{{ '/pelican/pelican-gen-bundle.js' | url | addHash }}"></script>
     {%- endif -%}
     {%- block javascript -%}{%- endblock -%}
   </body>

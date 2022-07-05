@@ -36,23 +36,14 @@ module.exports = (eleventyConfig, pluginOptions = {}) => {
     }
   })
 
-  if (options.assets.bundle) {
-    // trigger asset bundler
-    eleventyConfig.on('eleventy.after', async () => {
-      require('./lib/events/build-frontend-assets.js')(eleventyConfig, options)
-    })
-  } else {
-    // include core pelican and plugin assets to /pelican
-    eleventyConfig.addPassthroughCopy({
-      [path.resolve(__dirname, 'assets/css')]: 'pelican/css',
-      [path.resolve(__dirname, 'assets/js')]: 'pelican/js',
-      [path.resolve(__dirname, 'node_modules/@la-ots/pelican/dist')]: 'pelican'
-    })
-  }
+  // trigger asset bundler
+  eleventyConfig.on('eleventy.after', async () => {
+    require('./lib/events/build-frontend-assets.js')(eleventyConfig, options)
+  })
 
   // always include base Pelican images:
   eleventyConfig.addPassthroughCopy({
-    [path.resolve(__dirname, 'assets/img')]: 'pelican/img'
+    [path.resolve(__dirname, 'assets/img')]: '_pelican-assets/img'
   })
 
   // add default configuration
