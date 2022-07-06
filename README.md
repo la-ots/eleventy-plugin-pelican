@@ -150,13 +150,15 @@ social:
 * `docs/guide` - Main template for a docs/guide page
   * `guideBreadcrumbs` - Breadcrumbs
   * `guideTitle` - Title
-  * `guideTableOfContent` - Table of contents
+  * `guideTableOfContents` - Table of contents
   * `guideMainContent` - Main content wrapper
   * `guideStart` - Content at start of guide content area
   * `guideContent` - Main content
   * `guidePageNavigation` - Page next/previous
   * `guideEnd` - Content at end of guide area
 * `docs/area` - Sub template for an area overview for docs
+* `docs/sitemap` - Sitemap template for guides
+* `sitemap.xml` - Template for XML based sitemaps
 
 ## Development
 
