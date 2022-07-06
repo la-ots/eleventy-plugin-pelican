@@ -23,7 +23,7 @@
     }) }}
   {%- endblock -%}
 
-  {%- block guideTableOfContent -%}
+  {%- block guideTableOfContents -%}
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6">
@@ -48,16 +48,16 @@
           </div>
         </div>
 
-        {%- block guidePageNavigation -%}
-          {{ pageNavigation({
-            pages: collections.all | eleventyNavigation,
-            currentPage: page
-          }) }}
-        {%- endblock -%}
-
         {%- block guideEnd -%}{%- endblock -%}
       </div>
     </div>
+
+    {%- block guidePageNavigation -%}
+      {{ pageNavigation({
+        pages: collections.all | eleventyNavigation,
+        currentPage: page
+      }) }}
+    {%- endblock -%}
   {%- endblock -%}
 {%- endblock -%}
 

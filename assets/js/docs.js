@@ -1,6 +1,7 @@
 const pageWrapper = document.getElementById('page-wrapper')
 const sidebarButton = document.getElementById('sidebar-button')
 const sidebarDropdownLink = document.querySelectorAll('.sidebar-dropdown-header-expand')
+const scrollToTop = document.getElementById('ScrollToTop')
 
 const slideUp = (target, duration = 500) => {
   target.style.transitionProperty = 'height, margin, padding'
@@ -94,6 +95,38 @@ sidebarDropdownLink.forEach((dropdownItem) => {
     slideDown(nextSibling, 200)
   }
 })
+
+window.onscroll = () => {
+  scrollFunction()
+}
+
+if (scrollToTop) {
+  scrollToTop.onclick = (event) => {
+    event.preventDefault()
+    topFunction()
+  }
+}
+
+const scrollFunction = () => {
+  if (scrollToTop) {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      scrollToTop.style.display = 'block'
+    } else {
+      scrollToTop.style.display = 'none'
+    }
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+const topFunction = () => {
+  const pageContent = document.getElementsByClassName('page-content')
+  if (pageContent && pageContent.length > 0) {
+    pageContent[0].scrollTop = 0
+  } else {
+    document.body.scrollTop = 0
+    document.documentElement.scrollTop = 0
+  }
+}
 
 /* global $ */
 

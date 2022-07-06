@@ -50,6 +50,10 @@ dt>code {
   margin-right: 0.25em;
 }
 
+.col-12 > .area-divider:first-child {
+  display: none;
+}
+
 @media print {
   #ScrollToTop, 
   .edit-github, 
