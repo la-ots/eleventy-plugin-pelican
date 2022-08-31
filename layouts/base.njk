@@ -51,7 +51,7 @@
     {%- endblock -%}
     {%- block head -%}{%- endblock -%}
   </head>
-  <body class="bg-texture">
+  <body class="bg-texture {% block bodyClass %}{%- endblock -%}">
     {%- block skipLink -%}
       {{ skipLink() }}
     {%- endblock -%}
