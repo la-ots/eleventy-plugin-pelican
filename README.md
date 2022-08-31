@@ -37,48 +37,56 @@ These configurations are set in the Eleventy config
 
 ```js
 {
-  // Site title
+  // Default site title - can be overridden in page level meta
   title: null,
 
-  // Site description
+  // Default site description  - can be overridden in page level meta
   description: null,
 
-  // Site URL
+  // Site URL - used for URL generation
   url: null,
 
-  // Favicon path
+  // Relative favicon path
   favicon: null,
 
-  // Image path for site level social card
+  // Relative image path for site level social card
   social: {
     image: null
   },
 
   // layout specific configurations
   layouts: {
-    // // any custom css files to include in header
+    // any custom css or javascript files to include on all pages
+    // use paths that are relative to the build output folder
+    // will be included as:
+    //    <link rel="stylesheet" href="{path}" />
+    //    <script src="{path}"></script>
     css: [],
-    // any custom javascript files to include in header
     javascript: [],
-    // sidebar layout
+
+    // sidebar layout configurations
     sidebar: {
       // title (defaults to site title)
       title: null,
+
       // icon
       icon: {
         // url (defaults to favicon)
         url: null,
+
         // alt text
         alt: null
       }
     },
+
     // docs layouts
     docs: {
       // github button
       github: {
         // show "edit on Github" button?
         button: false,
-        // repository url
+
+        // Github repository url
         repository: null
       }
     }
@@ -87,16 +95,20 @@ These configurations are set in the Eleventy config
   // asset building/bundling
   assets: {
     // use core assets?
+    // core assets include Pelican libraries and some template related assets
     core: true,
-    // any custom assets (css/js) to include in bundle
-    // must be absolute paths
+
+    // any custom assets (css/js) to include in bundle.
+    // these must be absolute paths as they will be read in 
+    // from disk, processed, and bundled.
+    // SASS is processed, CSS is passed through, Javascript is compiled.
     custom: {
       css: [],
       javascript: []
     }
   }
 
-  // NewRelic configuration
+  // NewRelic configuration - optional
   newRelicApm: {
     accountId: null,
     trustKey: null,
@@ -124,6 +136,8 @@ social:
 ```
 
 ## Templates/Blocks
+
+The following list includes all of the templates and blocks available:
 
 * `base` - Base template
   * `css` - Any custom css
