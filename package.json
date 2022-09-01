@@ -1,6 +1,6 @@
 {
   "name": "@la-ots/eleventy-plugin-pelican",
-  "version": "1.0.0-beta5",
+  "version": "1.0.0-beta6",
   "description": "Eleventy plugin to build websites using the Pelican design system",
   "license": "CC0-1.0",
   "repository": {
