@@ -105,7 +105,10 @@ These configurations are set in the Eleventy config
     custom: {
       css: [],
       javascript: []
-    }
+    },
+
+    // If using custom SASS, you can also provide custom load paths
+    sassLoadPaths: []
   }
 
   // NewRelic configuration - optional
