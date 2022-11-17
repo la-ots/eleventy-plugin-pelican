@@ -17,7 +17,9 @@ You’re welcome to use this plugin even if your application isn’t considered 
 
 ## Installation
 
+```bash
 > npm install @la-ots/eleventy-plugin-pelican --save
+```
 
 ## Usage
 
@@ -29,6 +31,14 @@ const pelicanEleventyPlugin = require('eleventy-plugin-pelican')
 eleventyConfig.addPlugin(pelicanEleventyPlugin, {
   // configuration options
 })
+```
+
+### Debugging
+
+You can use the [debugging instructions provided by Eleventy](https://www.11ty.dev/docs/debugging/). The debug key is `PELICAN`:
+
+```bash
+> DEBUG=Pelican* NODE_ENV=development ELEVENTY_ENV=development eleventy --serve
 ```
 
 ### Configuration
@@ -105,7 +115,10 @@ These configurations are set in the Eleventy config
     custom: {
       css: [],
       javascript: []
-    }
+    },
+
+    // If using custom SASS, you can also provide custom load paths
+    sassLoadPaths: []
   }
 
   // NewRelic configuration - optional

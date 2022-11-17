@@ -9,10 +9,12 @@
 {%- block pageWithSidebarContent -%}
 
   {%- block guideBreadcrumbs -%}
-    {{ breadcrumbs({
-      entries: collections.all | eleventyNavigation,
-      currentPage: page
-    }) }}
+    <nav class="breadcrumb-wrapper" aria-label="breadcrumbs">
+      {{ breadcrumbs({
+        entries: collections.all | eleventyNavigation,
+        currentPage: page
+      }) }}
+    </nav>
   {%- endblock -%}
 
   {%- block guideTitle -%}

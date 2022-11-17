@@ -10,16 +10,11 @@
   }
 
   h2:not(:nth-child(1)),
-  h3,
+  h3:not(.card-body *),
   h4,
   h5 {
     margin-top: 36px;
     margin-bottom: 15px;
-  }
-
-  .card h3 {
-    margin-top: unset;
-    margin-bottom: unset;
   }
 
   .alert p:last-child {

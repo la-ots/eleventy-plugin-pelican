@@ -128,9 +128,11 @@ const topFunction = () => {
   }
 }
 
-/* global $ */
+/* global bootstrap */
+document.addEventListener('DOMContentLoaded', (event) => {
+  const popovers = Array.from(document.querySelectorAll('[data-bs-toggle="popover"]'))
+  const tooltips = Array.from(document.querySelectorAll('[data-bs-toggle="toolip"]'))
 
-$(() => {
-  $("[data-toggle='popover']").popover()
-  $("[data-toggle='tooltip']").tooltip()
+  popovers.map(elm => new bootstrap.Popover(elm))
+  tooltips.map(elm => new bootstrap.Tooltip(elm))
 })

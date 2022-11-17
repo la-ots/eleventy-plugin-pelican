@@ -11,11 +11,15 @@
     {%- if options.favicon -%}
       <link rel="icon" href="{{ options.favicon | url | addHash }}" type="image/png">
     {%- endif -%}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/brands.min.css" rel="stylesheet">    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900" rel="stylesheet">
+    {%- block fontAwesome -%}
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/brands.min.css" rel="stylesheet">    
+    {%- endblock -%}
+    {%- block googleFonts -%}
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900" rel="stylesheet">
+    {%- endblock -%}
     <link rel="stylesheet" href="{{ '/_pelican-assets/pelican-gen-bundle.css' | url | addHash }}">
     {%- if options.layouts.css -%}
       {%- for file in options.layouts.css -%}
