@@ -27,7 +27,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
     "@la-ots/pelican": "^2.0.0-beta.6",
     "@toycode/markdown-it-class": "^1.2.4",
-    "cssnano": "^5.1.11",
+    "cssnano": "^6.0.0",
     "deepmerge": "^4.2.2",
     "eleventy-plugin-nesting-toc": "^1.3.0",
     "eleventy-plugin-reading-time": "^0.0.1",
