@@ -51,7 +51,7 @@
     "@11ty/eleventy": "^1.0.1"
   },
   "devDependencies": {
-    "eslint": "^8.17.0",
+    "eslint": "^8.45.0",
     "eslint-config-standard": "^17.0.0"
   }
 }
