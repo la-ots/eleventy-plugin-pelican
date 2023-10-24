@@ -7,22 +7,20 @@
   {{ super() }}
   
   <div class="container-fluid">
-    <div class="row">
+    <div class="row g-2 mb-5" role="list">
       {%- set navPages = collections.all | eleventyNavigation %}
       {%- for entry in navPages %}
         {%- if entry.url in page.url %}
           {%- for child in entry.children %}
-            <div class="col-12 col-lg-6 col-xl-4 mb-4">
-              <div class="card h-100">
-                <div class="card-body d-flex flex-column">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card mb-0 shadow-none h-100">
+                <div class="card-body">
                   {%- if child.img %}
-                    <img src="{{ child.img }}" class="img-fluid mb-4 gray-hover-color" aria-hidden="true"/>
+                    <img src="{{ child.img }}" class="w-100 mb-3 gray-hover-color" aria-hidden="true"/>
                   {%- endif %}
-                  <h3 class="h5 mb-4">{{ child.title }}</h3>
-                  <p class="mb-0">{{ child.excerpt }}</p>
-                  <a href="{{ child.url }}" class="btn btn-outline-ui-priority mt-auto align-self-start">
-                    Read More
-                    <span class="fas fa-arrow-right"></span>
+                  <a href="{{ child.url }}" class="stretched-link area-page-link">
+                    <span class="icon fas fa-arrow-right me-2" aria-hidden="true"></span>
+                    {{ child.title }}
                   </a>
                 </div>
               </div>
