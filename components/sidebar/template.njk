@@ -1,12 +1,12 @@
-<nav id="sidebar" class="sidebar-wrapper d-print-none" aria-label="Sidebar"  aria-hidden="false" visibility="visible" aria-expanded="true">
+<nav id="sidebar" class="sidebar-wrapper d-print-none">
   <div class="sidebar-content">
     <div class="sidebar-brand">
-      <a href="{{ params.home | default('/', true) | url }}" class="mr-auto me-auto">
+      <a href="{{ params.home | default('/', true) | url }}" class="me-auto">
         <span class="d-md-none">{{ params.header | default('Navigation', true) }}</span>
         {% if params.icon %}
-          <img src="{{ params.icon }}" class="img-fluid d-none d-md-inline" style="width: 24px;" alt="{{ params.iconAltText | default('icon', true) }}" />
+          <img src="{{ params.icon }}" class="d-none d-md-inline" style="width: 24px;" alt="{{ params.iconAltText | default('icon', true) }}" />
         {% endif %}
-        {{ params.title | title }} <span class="sr-only">Home</span>
+        <span class="d-none d-md-inline">{{ params.title | title }} <span class="visually-hidden">Home</span></span>
       </a>
     </div>
     <div class="sidebar-menu text-white">
@@ -19,8 +19,8 @@
             </a>              
             {%- if entry.children.length > 0 -%}
               <a class="sidebar-dropdown-header-expand {{ 'active' if entry.url in params.currentPage.url }}" href="#" role="button">
-                <span class="sr-only">Toggle child items for {{ entry.title }}</span>
-                <span class="fas fa-fw fa-angle-right" aria-hidden="true"></span>
+                <span class="visually-hidden">Toggle child items for {{ entry.title }}</span>
+                <span class="icon fas fa-fw fa-angle-right" aria-hidden="true"></span>
               </a>
             {%- endif -%}
           </div>
@@ -30,7 +30,7 @@
                 {%- for child in entry.children -%}
                   <li class="sidebar-item {{ 'active' if child.url == params.currentPage.url }}">
                     <a class="sidebar-nav-item {{ 'active' if child.url == params.currentPage.url' }}" href="{{ child.url | url }}">
-                      <span class="fas fa-fw fa-eye {{ 'invisible' if child.url != params.currentPage.url }}" aria-hidden="true"></span>
+                      <span class="icon fas fa-fw fa-eye me-1 {{ 'invisible' if child.url != params.currentPage.url }}" aria-hidden="true"></span>
                       <span>{{ child.title }}</span>
                     </a>
                   </li>

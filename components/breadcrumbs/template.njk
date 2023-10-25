@@ -2,7 +2,7 @@
   <li class="breadcrumb-item">
     <a href="{{ params.home.url | default('/', true) }}">
       <span class="fas fa-home mr-1 me-1" aria-hidden="true"></span>
-      <span class="sr-only">{{ params.home.text | default('Home', true) }}</span>
+      <span class="visually-hidden">{{ params.home.text | default('Home', true) }}</span>
     </a>
   </li>
   {%- for entry in params.entries -%}

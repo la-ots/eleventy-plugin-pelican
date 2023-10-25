@@ -1,4 +1,4 @@
-<a href="{{ params.url | default('#main', true) }}" class="btn-scroll-top">
-  <span class="fas fa-arrow-up" aria-hidden="true"></span>
+<a id="ScrollToTop" href="{{ params.url | default('#main', true) }}" class="btn btn-accent btn-sm btn-scroll-top">
+  <span class="icon fas fa-arrow-up" aria-hidden="true"></span>
   <span>{{ params.text | default('Page top', true) }}</span>
 </a>

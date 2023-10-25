@@ -1,23 +1,23 @@
 {%- set nav = params.pages | navigationNextPrevious(params.currentPage) -%}
 
 {%- if nav.next or nav.previous -%}
-  <div class="btns-previous-next" role="region" aria-label="Move along in this process">
+  <div class="btns-previous-next" role="region" aria-label="Move in this area">
     <hr class="major" />
     <div class="container-fluid">
       <div class="row justify-content-between">
         <div class="col-6 col-md-3">
           {%- if nav.previous -%}
-            <a href="{{ nav.previous.url | url }}" class="btn btn-outline-ui btn-lg btn-block w-100" role="button">
-              <span class="fas fa-arrow-left fa-xs mr-1 me-1" aria-hidden="true"></span>
-              <span class="sr-only">Go to </span>Previous<span class="sr-only"> screen</span>
+            <a href="{{ nav.previous.url | url }}" class="btn btn-outline-ui">
+              <span class="icon fas fa-arrow-left fa-xs me-1" aria-hidden="true"></span>
+              Previous
             </a>
           {%- endif -%}
         </div>
-        <div class="col-6 col-md-3 text-right">
+        <div class="col-6 col-md-3 text-right text-end">
           {%- if nav.next -%}
-            <a href="{{ nav.next.url | url }}" class="btn btn-primary btn-lg btn-block w-100" role="button">
-              <span class="sr-only">Go to </span>Next<span class="sr-only"> screen</span>
-              <span class="fas fa-arrow-right fa-xs ml-1 ms-1" aria-hidden="true"></span>
+            <a href="{{ nav.next.url | url }}" class="btn btn-primary">
+              Next
+              <span class="icon fas fa-arrow-right fa-xs ms-1" aria-hidden="true"></span>
             </a>
           {%- endif -%}
         </div>
