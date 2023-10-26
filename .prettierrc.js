@@ -1,3 +1,3 @@
 module.exports = {
-...require("@la-ots/prettier-config"),
+  ...require("@la-ots/prettier-config"),
 };

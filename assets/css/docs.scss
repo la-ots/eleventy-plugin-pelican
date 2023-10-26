@@ -3,27 +3,36 @@
     height: 100%;
     max-height: unset;
   }
+
   .brand-link::after {
     display: none !important;
   }
+
   .pd-color-block {
     height: 160px;
   }
+
   .btns-previous-next {
     margin-top: auto;
   }
-  .content-area p:not(.lead),
-  .content-area li,
-  .content-area li:not(:list-group-item) {
-    max-width: 80ch;
-  }
+
   .content-area li {
     line-height: 1.5;
   }
+
+  .content-area p:not(.lead),
+  .content-area li,
+  .content-area li:not(:list-group-item) {
+    /* stylelint-disable-line */
+    max-width: 80ch;
+  }
+
   .content-area li:not(:last-child),
   .content-area li:not(:list-group-item) {
+    /* stylelint-disable-line */
     margin-bottom: 0.3125rem;
   }
+
   .area-page-link {
     text-decoration: none;
     display: flex;
@@ -32,6 +41,7 @@
     position: relative;
     padding-left: 1.375rem;
   }
+
   .area-page-link .icon {
     position: absolute;
     left: 0;
@@ -39,20 +49,24 @@
     transition: opacity 100ms ease-out;
     opacity: 0.5;
   }
+
   .area-page-link:hover {
     text-decoration: underline;
   }
+
   .area-page-link:hover .icon {
     opacity: 1;
   }
-  
+
   /* adding padding-x at larger sizes */
+
   /* this applies only to this site */
   @media screen and (min-width: 1200px) {
     .container-fluid {
       padding-right: 24px;
       padding-left: 24px;
     }
+
     .wrapper-topbar {
       padding-left: 14px;
       padding-right: 14px;
@@ -60,11 +74,11 @@
   }
 
   @media print {
-    #ScrollToTop, 
-    .edit-github, 
-    .breadcrumb-wrapper, 
-    .btns-previous-next, 
-    .skip-to-main, 
+    .btn-scroll-top,
+    .edit-github,
+    .breadcrumb-wrapper,
+    .btns-previous-next,
+    .skip-to-main,
     .page-toc,
     #sidebar,
     #footer,
@@ -78,6 +92,7 @@
       height: unset;
       position: unset;
     }
+
     .page-wrapper,
     .page-content {
       padding: none;
