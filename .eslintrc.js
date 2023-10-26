@@ -1,15 +1,6 @@
 module.exports = {
-  env: {
-    browser: true,
-    commonjs: true,
-    es2021: true
-  },
-  extends: [
-    'standard'
-  ],
-  parserOptions: {
-    ecmaVersion: 'latest'
-  },
+  extends: [ "@la-ots/eslint-config", "prettier" ],
   rules: {
-  }
-}
+    // add any overrides if required
+  },
+};
