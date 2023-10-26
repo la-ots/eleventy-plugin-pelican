@@ -45,7 +45,7 @@
   .area-page-link:hover .icon {
     opacity: 1;
   }
-  
+
   /* adding padding-x at larger sizes */
   /* this applies only to this site */
   @media screen and (min-width: 1200px) {
@@ -60,11 +60,11 @@
   }
 
   @media print {
-    #ScrollToTop, 
-    .edit-github, 
-    .breadcrumb-wrapper, 
-    .btns-previous-next, 
-    .skip-to-main, 
+    #ScrollToTop,
+    .edit-github,
+    .breadcrumb-wrapper,
+    .btns-previous-next,
+    .skip-to-main,
     .page-toc,
     #sidebar,
     #footer,

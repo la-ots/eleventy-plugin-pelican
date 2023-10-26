@@ -19,7 +19,14 @@
     "lib"
   ],
   "scripts": {
-    "lint": "eslint **/*.js"
+    "format:check": "prettier --check .",
+    "format": "prettier --write --ignore-unknown .",
+    "lint:css": "stylelint **/*.{css,scss} || exit 0",
+    "lint:css:fix": "stylelint **/*.{css,scss} --fix",
+    "lint:js": "eslint **/*.js || exit 0",
+    "lint:js:fix": "eslint **/*.js --fix",
+    "lint": "npm-run-all --parallel --aggregate-output lint:css lint:js",
+    "lint:fix": "npm-run-all --parallel --aggregate-output lint:css:fix lint:js:fix"
   },
   "dependencies": {
     "@11ty/eleventy-navigation": "^0.3.3",
@@ -51,7 +58,8 @@
     "@11ty/eleventy": "^2.0.1"
   },
   "devDependencies": {
-    "eslint": "^8.52.0",
-    "eslint-config-standard": "^17.1.0"
+    "@la-ots/eslint-config": "^1.0.1",
+    "@la-ots/prettier-config": "^1.0.0",
+    "@la-ots/stylelint-config": "^1.0.0"
   }
 }
