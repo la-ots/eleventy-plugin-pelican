@@ -11,7 +11,7 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -30,7 +30,7 @@ jobs:
         with:
           name: eleventy-plugin-pelican
           path: "la-ots-eleventy-plugin-pelican-*.tgz"
-          
+
   publish-npm:
     name: Release to NPM
     needs: build
@@ -49,20 +49,20 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
 
       - name: Publish to NPM
         if: "!github.event.release.prerelease"
         run: npm publish $(ls *.tgz) --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          
+
       - name: Publish to NPM (prerelease)
         if: "github.event.release.prerelease"
         run: npm publish $(ls *.tgz) --access public --tag beta
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          
+
   publish-gpr:
     name: Release to GitHub Packages
     needs: build
@@ -81,8 +81,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-          registry-url: 'https://npm.pkg.github.com'
-        
+          registry-url: "https://npm.pkg.github.com"
+
       - name: Publish to GitHub Packages
         if: "!github.event.release.prerelease"
         run: npm publish $(ls *.tgz)

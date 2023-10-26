@@ -6,14 +6,14 @@ Inspired by the GOV.UK Eleventy plugin: https://github.com/x-govuk/govuk-elevent
 
 You’re welcome to use this plugin even if your application isn’t considered part of the Louisiana.gov system, provided the application does not:
 
-  * Identify itself as being part of Louisiana.gov
-  * Use the Louisiana state seal or OTS logo as an identifying mark
-  * Suggest that it’s an official Louisiana.gov website if it’s not
+- Identify itself as being part of Louisiana.gov
+- Use the Louisiana state seal or OTS logo as an identifying mark
+- Suggest that it’s an official Louisiana.gov website if it’s not
 
 ## Requirements
 
-  * Node.js v16 or above
-  * Eleventy v1.0.0 or above
+- Node.js v16 or above
+- Eleventy v1.0.0 or above
 
 ## Installation
 
@@ -26,11 +26,11 @@ You’re welcome to use this plugin even if your application isn’t considered 
 Include the following in your Eleventy config file (typically `.eleventy.js`'):
 
 ```js
-const pelicanEleventyPlugin = require('eleventy-plugin-pelican')
+const pelicanEleventyPlugin = require("eleventy-plugin-pelican");
 
 eleventyConfig.addPlugin(pelicanEleventyPlugin, {
   // configuration options
-})
+});
 ```
 
 ### Debugging
@@ -109,7 +109,7 @@ These configurations are set in the Eleventy config
     core: true,
 
     // any custom assets (css/js) to include in bundle.
-    // these must be absolute paths as they will be read in 
+    // these must be absolute paths as they will be read in
     // from disk, processed, and bundled.
     // SASS is processed, CSS is passed through, Javascript is compiled.
     custom: {
@@ -152,40 +152,40 @@ social:
 
 The following list includes all of the templates and blocks available:
 
-* `base` - Base template
-  * `css` - Any custom css
-  * `javascript` - Any custom javascript
-  * `newRelicApm` - New Relic APM code
-  * `head` - Any custom HTML head items
-  * `skipLink` - Skip to content link
-  * `officialBanner` - Official State of LA info banner
-  * `content` - Core page content 
-  * `backToTop` - Back to top link
-* `home` - Empty template, only inherits from `base`
-* `page` - Public facing page
-  * `pageNavbar` - Top navigation area
-  * `pageContentStart` - Content at start of page content area
-  * `pageContent` - Main content
-  * `pageContentEnd` - Content at end of page content area
-  * `pageFooter` - Footer area
-* `sidebar` - Template with sidebar
-  * `sidebar` - Side navigation
-  * `sidebarMainContent` - Main content area
-  * `sidebarTopHeader` - Header
-  * `pageWithSidebarContent` - Main sidebar content
-  * `sidebarFooter` - Footer
-* `docs/guide` - Main template for a docs/guide page
-  * `guideBreadcrumbs` - Breadcrumbs
-  * `guideTitle` - Title
-  * `guideTableOfContents` - Table of contents
-  * `guideMainContent` - Main content wrapper
-  * `guideStart` - Content at start of guide content area
-  * `guideContent` - Main content
-  * `guidePageNavigation` - Page next/previous
-  * `guideEnd` - Content at end of guide area
-* `docs/area` - Sub template for an area overview for docs
-* `docs/sitemap` - Sitemap template for guides
-* `sitemap.xml` - Template for XML based sitemaps
+- `base` - Base template
+  - `css` - Any custom css
+  - `javascript` - Any custom javascript
+  - `newRelicApm` - New Relic APM code
+  - `head` - Any custom HTML head items
+  - `skipLink` - Skip to content link
+  - `officialBanner` - Official State of LA info banner
+  - `content` - Core page content
+  - `backToTop` - Back to top link
+- `home` - Empty template, only inherits from `base`
+- `page` - Public facing page
+  - `pageNavbar` - Top navigation area
+  - `pageContentStart` - Content at start of page content area
+  - `pageContent` - Main content
+  - `pageContentEnd` - Content at end of page content area
+  - `pageFooter` - Footer area
+- `sidebar` - Template with sidebar
+  - `sidebar` - Side navigation
+  - `sidebarMainContent` - Main content area
+  - `sidebarTopHeader` - Header
+  - `pageWithSidebarContent` - Main sidebar content
+  - `sidebarFooter` - Footer
+- `docs/guide` - Main template for a docs/guide page
+  - `guideBreadcrumbs` - Breadcrumbs
+  - `guideTitle` - Title
+  - `guideTableOfContents` - Table of contents
+  - `guideMainContent` - Main content wrapper
+  - `guideStart` - Content at start of guide content area
+  - `guideContent` - Main content
+  - `guidePageNavigation` - Page next/previous
+  - `guideEnd` - Content at end of guide area
+- `docs/area` - Sub template for an area overview for docs
+- `docs/sitemap` - Sitemap template for guides
+- `sitemap.xml` - Template for XML based sitemaps
 
 ## Development
 
